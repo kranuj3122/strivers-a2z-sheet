@@ -172,7 +172,24 @@ public class Patterns {
 
     // pattern 17
     static void alphabetTriangle(int n) {
-        
+        for(int i=1; i<=n; i++) {
+            int b = n-i;
+            for(int j=0; j<b; j++) {
+                System.out.print(" ");
+            }
+            int chars = (2*i) - 1;
+            char ch = 'A';
+            for(int j=0; j<chars; j++) {
+                System.out.print(ch);
+                if(j<chars/2) {
+                    ch++;
+                }
+                else {
+                    ch--;
+                }
+            }
+            System.out.println();
+        }
     }
 
     // pattern 18
@@ -187,16 +204,64 @@ public class Patterns {
 
     // pattern 19 (hollow diamon star pattern)
     static void hollowDiamond(int n) {
-        int rows=2*n, cols=2*n;
-        for(int i=1; i<=rows; i++) {
-            for(int j=1; j<=cols; j++) {
-                if(i==1 || i==rows || j==1 || j==cols) {
-                    System.out.print("*");
-                }
-                else {
-                    System.out.print(" ");
-                }
+        for(int i=0; i<n; i++) {
+            int stars = n-i;
+            int blank = 2*i;
+            for(int j=0; j<stars; j++) {
+                System.out.print("*");
             }
+            for(int j=0; j<blank; j++) {
+                System.out.print(" ");
+            }
+            for(int j=0; j<stars; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        for(int i=n-1; i>=0; i--) {
+            int stars = n-i;
+            int blank = 2*i;
+            for(int j=0; j<stars; j++) {
+                System.out.print("*");
+            }
+            for(int j=0; j<blank; j++) {
+                System.out.print(" ");
+            }
+            for(int j=0; j<stars; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+    static void horizontalDamroo(int n) {
+        for(int i=0; i<n; i++) {
+            int stars = i+1;
+            int blank = 2*(n-i-1);
+            for(int j=0; j<stars; j++) {
+                System.out.print("*");
+            }
+            for(int j=0; j<blank; j++) {
+                System.out.print(" ");
+            }
+            for(int j=0; j<stars; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        for(int i=n-2; i>=0; i--) {
+            int stars = i+1;
+            int blank = 2*(n-i-1);
+            for(int j=0; j<stars; j++) {
+                System.out.print("*");
+            }
+            for(int j=0; j<blank; j++) {
+                System.out.print(" ");
+            }
+            for(int j=0; j<stars; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
         }
     }
 
@@ -210,6 +275,62 @@ public class Patterns {
                 else {
                     System.out.print(" ");
                 }
+            }
+            System.out.println();
+        }
+    }
+
+    // pattern 22
+    static void spiralNumberSquare(int n) {
+        int sz = 2*n-1;
+        int[][] spiral = new int[sz][sz];
+
+        int startRow = 0;
+        int endRow = sz-1;
+        int startCol = 0;
+        int endCol = sz-1;
+
+
+        while(startRow<=endRow && startCol<=endCol) {
+            for(int i=startCol; i<=endCol; i++) {
+                spiral[startRow][i] = n;
+            }
+            startRow++;
+            for(int i=startRow; i<=endRow; i++) {
+                spiral[i][endCol] = n;
+            }
+            endCol--;
+            for(int i=endCol; i>=startCol; i--) {
+                spiral[endRow][i] = n;
+            }
+            endRow--;
+            for(int i=endRow; i>=startRow; i--) {
+                spiral[i][startCol] = n;
+            }
+            startCol++;
+
+            n--;
+        }
+        
+        for(int[] sp: spiral) {
+            for(int num: sp) {
+                System.out.print(num);
+            }
+            System.out.println();
+        }
+    }
+
+    // pattern 22
+    static void spiralNumberSquareWithoutExtraSpace(int n) {
+        int sz = 2*n - 1;
+        // find min distance from the center of square
+        // center co-ordinate (n-1, n-1)
+        for(int i=0; i<sz; i++) {
+            for(int j=0; j<sz; j++) {
+                int a = Math.abs(n-1-i);
+                int b = Math.abs(n-1-j);
+                int max = Math.max(a, b);
+                System.out.print(max+1);
             }
             System.out.println();
         }
@@ -232,10 +353,12 @@ public class Patterns {
         // triangleWithAlphabet(5);
         // downwardTriangleWithAlphabet(5);
         // triangleWithSameAlphabetAtEachRow(5);
-        // alphabetTriangle(5); TO-DO
+        // alphabetTriangle(7);
         // reverseAlphabetTriangle(5);
-        // To-Do
-        // To-Do
+        // hollowDiamond(6);
+        // horizontalDamroo(5);
         // hollowRectangle(5);
+        // spiralNumberSquare(3);
+        spiralNumberSquareWithoutExtraSpace(4);
     }
 }
