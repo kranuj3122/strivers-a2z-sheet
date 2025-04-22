@@ -64,11 +64,11 @@ public class Recursion {
         // printNto1(6);
         // System.out.println(sumOfFirstN(5));
         // System.out.println(factorialFirstN(4));
-        // int[] arr = {1,4,2,5,3,7};
-        // reverseArray(arr, 0, arr.length-1);
-        // System.out.println(Arrays.toString(arr));
-        String s = "acba";
-        System.out.println(isPallindromeString(s, 0, s.length()-1));
+        int[] arr = {1,4,2,5,3,7};
+        reverseArray(arr, 0, arr.length-1);
+        System.out.println(Arrays.toString(arr));
+        // String s = "acba";
+        // System.out.println(isPallindromeString(s, 0, s.length()-1));
         // System.out.println(fibonacci(5));
     }
 }
