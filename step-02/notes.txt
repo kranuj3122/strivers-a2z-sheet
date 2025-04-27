@@ -1,0 +1,37 @@
+- Sorting:
+    * Adaptive - Already sorted data takes less time
+    * In-place - Doesn't require extra space
+    * Stable - Two elements have the same value, a stable sorting algorithm keeps them in the same relative order as they were in the input.
+
+- Selection sort:
+    * Not stable. But, can be made.
+    * In place
+    * Not adaptive
+
+- Insertion sort:
+    * Adaptive
+    * Stable
+    * In place
+    * Used when no. of elements is small
+
+- Bubble sort:
+    * In place
+    * Stable
+    * Not adaptive. But, can be made using boolean flag.
+    * Total n-1 iterations. In ith iteration there will be n-1-i swaps.
+
+- Quick sort:
+    * Picks an element as pivot & partition around the pivot such that pivot element will be at correct position.
+    * Not stable
+    * Not adaptive
+    * In place
+
+- Merge sort:
+    * Stable
+    * Not adaptive
+    * Not in-place (As it requires extra space for storing temp array)
+
+- Counting sort:
+    * TC - O(n+k), where k = max(arr), n = len(arr)
+    * SC - O(k)
+    * Not stable, Not adaptive, Not in-place
