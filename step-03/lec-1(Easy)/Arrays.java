@@ -211,7 +211,7 @@ public class Arrays {
     public static void main(String[] args) {
         int[] arr = new int[] {12, 47, 5, 29, 34, 1, 18, 42, 8, 25};
 
-        // System.out.println(largestElement(arr));
+        System.out.println(largestElement(arr));
 
         // System.out.println(secondLargestElement(arr));
 
@@ -250,8 +250,8 @@ public class Arrays {
         // System.out.println(longestSubarrayWithSumK(a, 3));
 
         
-        int[] a = new int[] {94,-33,-13,40,-82,94,-33,-13,40,-82};
-        System.out.println(longestSubarray(a, 52));
+        // int[] a = new int[] {94,-33,-13,40,-82,94,-33,-13,40,-82};
+        // System.out.println(longestSubarray(a, 52));
 
 
     }
