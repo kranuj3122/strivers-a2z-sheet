@@ -208,6 +208,24 @@ public class Arrays {
         return ans;
     }
 
+    // count total sub-array with sum k
+    static int subarraySumCount(int[] nums, int k) {
+        Map<Integer, Integer> mp = new HashMap<>();
+        mp.put(0, 1);
+        int n = nums.length;
+        int currSum = 0;
+        int ans = 0;
+        for(int i=0; i<n; i++) {
+            currSum += nums[i];
+            int target = currSum - k;
+            if(mp.containsKey(target)) {
+                ans += mp.get(target);
+            }
+            mp.put(currSum, mp.getOrDefault(currSum, 0)+1);
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
         int[] arr = new int[] {12, 47, 5, 29, 34, 1, 18, 42, 8, 25};
 
@@ -252,6 +270,9 @@ public class Arrays {
         
         // int[] a = new int[] {94,-33,-13,40,-82,94,-33,-13,40,-82};
         // System.out.println(longestSubarray(a, 52));
+
+        // int[] a = new int[] {0,0,0,0};
+        // System.out.println(subarraySumCount(a, 0));
 
 
     }
