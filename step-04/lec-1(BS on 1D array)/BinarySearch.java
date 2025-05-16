@@ -1,6 +1,5 @@
 
 import java.util.Arrays;
-import java.util.List;
 
 public class BinarySearch {
 
@@ -269,8 +268,8 @@ public class BinarySearch {
 
         // singleNonDuplicate(nums); To-Do
 
-        // int[] nums = {1,2,5,4,3,2,1};
-        // System.out.println(findPeakElement(nums));
+        int[] nums = {1,2,5,4,3,2,1};
+        System.out.println(findPeakElement(nums));
 
     }
 }
