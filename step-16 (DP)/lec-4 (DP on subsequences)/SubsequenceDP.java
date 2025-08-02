@@ -1,6 +1,4 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class SubsequenceDP {
     static int knapsackHelper(int[] wt, int[] val, int w, int n, int[][] dp) {
