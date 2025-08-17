@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.Arrays;
 
 public class MCM {
     static int matrixMultiplicationUtil(int[] arr, int i, int j, int[][] dp) {
