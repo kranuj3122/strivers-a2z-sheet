@@ -325,6 +325,35 @@ public class SubsequenceDP {
         return dp[n][n];
     }
 
+    static int minDifference(int arr[]) {
+        int n = arr.length;
+        int sum = 0;
+        for(int num: arr) {
+            sum += num;
+        }
+        boolean[][] dp = new boolean[n+1][sum+1];
+        for(int i=0; i<=n; i++) {
+            dp[i][0] = true;
+        }
+        for(int i=1; i<=n; i++) {
+            for(int j=1; j<=sum; j++) {
+                if(arr[i-1]<=j) {
+                    dp[i][j] = dp[i-1][j] || dp[i-1][j-arr[i-1]];
+                }
+                else {
+                    dp[i][j] = dp[i-1][j];
+                }
+            }
+        }
+        int ans = Integer.MAX_VALUE;
+        for(int i=0; 2*i<=sum; i++) {
+            if(dp[n][i]) {
+                ans = Math.min(ans, Math.abs(sum-2*i));
+            }
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
         // int W = 5;
         // int[] val = {10, 40, 30, 50};
@@ -363,8 +392,11 @@ public class SubsequenceDP {
         // int amount2 = 11;
         // System.out.println(minCoinChange(coins2, amount2));
 
-        int[] price = {1, 5, 8, 9, 10, 17, 17, 20};
-        System.out.println(cutRod(price));
+        // int[] price = {1, 5, 8, 9, 10, 17, 17, 20};
+        // System.out.println(cutRod(price));
+
+        int[] arr = {1, 6, 11, 5};
+        System.out.println(minDifference(arr));
 
     }
 }
